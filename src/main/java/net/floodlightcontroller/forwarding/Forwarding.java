@@ -670,7 +670,7 @@ public class Forwarding extends ForwardingBase implements IFloodlightModule, IOF
 
         if (broadcastPorts.isEmpty()) {
             log.debug("No broadcast ports found. Using FLOOD output action");
-            broadcastPorts = Collections.singleton(OFPort.FLOOD);
+            broadcastPorts = Collections.singleton(OFPort.ALL);
         }
 
         for (OFPort p : broadcastPorts) {
