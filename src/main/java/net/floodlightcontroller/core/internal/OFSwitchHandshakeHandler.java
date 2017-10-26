@@ -1105,7 +1105,8 @@ public class OFSwitchHandshakeHandler implements IOFConnectionListener {
 		@Override
 		void enterState() {
 			if (sw.getOFFactory().getVersion().compareTo(OFVersion.OF_13) < 0
-					|| sw.getOFFactory().getVersion().compareTo(OFVersion.OF_15) == 0) { //FIXME must skip for OVS
+					|| sw.getOFFactory().getVersion().compareTo(OFVersion.OF_15) == 0 //FIXME must skip for OVS
+					 || sw.getSwitchDescription().getManufacturerDescription().contains("Corsa")) {
 				nextState();
 			} else {
 				sendHandshakeTableFeaturesRequest();
